@@ -20,7 +20,7 @@ const AuthButton: React.FC = () => {
     setIsLoading(true);
     try {
       await login(email, password);
-      toast({ title: "Success", description: "Logged in successfully" });
+      toast({ title: "Success", description: "Logged in successfully", className:"bg-white"});
       setOpen(false);
     } catch {
       toast({ title: "Error", description: "Invalid email or password", variant: "destructive" });
