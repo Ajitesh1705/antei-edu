@@ -1,5 +1,4 @@
 
-import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import Hero from '../components/home/Hero';
@@ -15,13 +14,9 @@ const Index = () => {
       <Navbar />
       
       <main className="flex-grow">
-        {/* Hero Section */}
+        
         <Hero />
-
-        {/* Features Section */}
         <Features />
-
-        {/* Call to Action Section */}
         <section className="py-16 bg-primary/5">
           <div className="container mx-auto px-4 text-center">
             <FadeIn>

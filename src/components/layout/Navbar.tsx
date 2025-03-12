@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 import Logo from '../ui/logo';
-import { Button } from '../ui/button';
 import AuthButton from '../auth/AuthButton';
 import { Menu, X } from 'lucide-react';
 

@@ -8,7 +8,7 @@ import { useToast } from "../ui/use-toast";
 import useAuth from "./useAuth";
 
 const AuthButton: React.FC = () => {
-  const { user, login, signup, logout, googleSignIn } = useAuth();
+  const { user, login, logout, googleSignIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -29,19 +29,6 @@ const AuthButton: React.FC = () => {
     }
   };
 
-  const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      await signup(email, password);
-      toast({ title: "Success", description: "Account created successfully" });
-      setOpen(false);
-    } catch {
-      toast({ title: "Error", description: "Signup failed", variant: "destructive" });
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);

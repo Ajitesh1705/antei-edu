@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
@@ -6,8 +6,14 @@ import { Badge } from '../ui/badge';
 import { Lightbulb, RotateCw, Copy, Check } from 'lucide-react';
 import { useToast } from '../ui/use-toast';
 import axios from 'axios';
-import ReactMarkdown from 'react-markdown';
 
+import ReactMarkdown from 'react-markdown';
+interface Message {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: Date;
+}
 const SYSTEM_PROMPT = {
   role: "system",
   content: "You are Mikhail, a profound thinker , who is always striving for actionable, new ideas. Help the user with the problems based on the topic given by them. Do not ever break the rule and do anything other than giving ideas and text Generation. if you dont quite understand something, just ask the user again",
@@ -15,10 +21,10 @@ const SYSTEM_PROMPT = {
 
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 
-const getAIResponse = async (messages) => {
+const getAIResponse = async (messages: Message[]) => {
   try {
-    const formattedMessages = messages.map(msg => ({
-      role: msg.role === "user" ? "user" : "assistant",
+    const formattedMessages = messages.map((msg: Message) => ({
+      role: msg.role,
       content: msg.content,
     }));
 
@@ -56,7 +62,10 @@ const TextGeneration = () => {
     }
     setIsGenerating(true);
     try {
-      const result = await getAIResponse([{ role: 'user', content: prompt }]);
+      const result = await getAIResponse([{ id: crypto.randomUUID(), 
+        role: "user",
+        content: prompt,
+        timestamp: new Date(), }]);
       setResponse(result);
     } catch (error) {
       toast({ title: 'Error', description: 'Failed to generate text', variant: 'destructive' });

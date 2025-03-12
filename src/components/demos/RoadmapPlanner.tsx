@@ -29,11 +29,11 @@ const RoadmapPlanner = () => {
           messages: [
             {
               role: "system",
-              content: "You are MJ, a career expert that generates structured learning roadmaps. Format responses using Markdown for clarity and include weekly topics and resources."
+              content: "You are MJ, a career expert that generates structured learning roadmaps. Format responses using Markdown for clarity and include weekly topics and resources. Use a line , between each week and a bigger space between each month",
             },
             {
               role: "user",
-              content: `Create a personalized study roadmap for learning ${subject} in ${timeframe}. Include weekly breakdowns, key topics, and useful resources.`
+              content: `Create a personalized study roadmap for learning ${subject} in ${timeframe}. Include weekly breakdowns, key topics, and useful resources, make it your priority, the responses should be well spaced and thorough. Its okay to ask again if you dont understand something.`
             }
           ]
         },
@@ -46,7 +46,7 @@ const RoadmapPlanner = () => {
       );
       
       setRoadmap(response.data.choices[0].message.content.trim());
-      toast({ title: 'Roadmap Generated', description: 'Your personalized study plan is ready!' });
+      toast({ title: 'Roadmap Generated', description: 'Your personalized study plan is ready!', className:"bg-white"});
     } catch (error) {
       console.error("Error fetching AI response:", error);
       toast({ title: 'Error', description: 'Failed to generate roadmap', variant: 'destructive' });
