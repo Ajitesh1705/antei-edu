@@ -20,7 +20,7 @@ const AuthButton: React.FC = () => {
     setIsLoading(true);
     try {
       await login(email, password);
-      toast({ title: "Success", description: "Logged in successfully", className:"bg-white"});
+      toast({ title: "Success", description: "Logged in successfully", className: "bg-white text-black border border-black shadow-lg"});
       setOpen(false);
     } catch {
       toast({ title: "Error", description: "Invalid email or password", variant: "destructive" });
@@ -34,7 +34,7 @@ const AuthButton: React.FC = () => {
     setIsLoading(true);
     try {
       await googleSignIn();
-      toast({ title: "Success", description: "Logged in with Google" });
+      toast({ title: "Success", description: "Logged in with Google" ,className: "bg-white text-black border border-black shadow-lg" });
       setOpen(false);
     } catch {
       toast({ title: "Error", description: "Google sign-in failed", variant: "destructive" });
