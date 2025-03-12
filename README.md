@@ -53,26 +53,6 @@ The app will be available at `http://localhost:5173/`.
 - The chatbot is **only accessible to signed-in users**.
 - Unauthenticated users trying to access it will be **redirected to the login page**.
 
-## 🚀 Deployment on Vercel
-To deploy the app on Vercel:
-1. Install the Vercel CLI:
-   ```sh
-   npm install -g vercel
-   ```
-2. Login to Vercel:
-   ```sh
-   vercel login
-   ```
-3. Deploy the project:
-   ```sh
-   vercel
-   ```
-4. Set environment variables on Vercel using:
-   ```sh
-   vercel env add VITE_FIREBASE_API_KEY your_firebase_api_key
-   vercel env add VITE_OPENROUTER_API_KEY your_openrouter_api_key
-   ```
-5. Once deployed, your app will be accessible via the provided Vercel URL.
 
 ## 🛠️ Features
 ✅ **User Authentication** via Firebase
