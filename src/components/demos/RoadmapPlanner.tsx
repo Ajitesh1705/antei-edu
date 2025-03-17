@@ -25,7 +25,7 @@ const RoadmapPlanner = () => {
       const response = await axios.post(
         "http://localhost:5000/api/gemini", 
         {
-          prompt,
+          prompt: `Create a personalized study roadmap for learning ${subject} in ${timeframe}. Include weekly breakdowns, key topics, and useful resources, make it your priority, the responses should be well spaced and thorough. Its okay to ask again if you dont understand something.`,
           agentType: "roadmapPlanner", 
         },
         {

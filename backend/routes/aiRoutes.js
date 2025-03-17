@@ -8,6 +8,7 @@ const router = express.Router();
 router.post("/gemini", verifyToken, async (req, res) => {
     try {
         const { prompt, agentType } = req.body;
+        
         const systemPrompt = systemPrompts[agentType] || systemPrompts.default;
         const messages = [systemPrompt, { role: "user", content: prompt }];
 
